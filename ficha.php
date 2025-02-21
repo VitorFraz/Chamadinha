@@ -8,12 +8,12 @@ $password = '';
 
 $banco = new PDO($dsn, $user, $password);
 
-$select = 'SELECT * FROM tb_info_alunos WHERE id_alunos = ' . $id_aluno;
+$select = 'SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos = ' . $id_aluno;
 
 $dados = $banco->query($select)->fetch();
 
-echo '<pre>';
-var_dump($dados);
+
+
 
 
 ?>
@@ -41,11 +41,11 @@ var_dump($dados);
 </style>
 
 <main class="container text-center my-5">
-    <img src="./img/luffy_careca.jpg" alt="img-perfil" class="img-thumbnail">
+    <img src="./img/<?= $dados['img'] ?>" alt="img-perfil" class="img-thumbnail">
 
     <form action="#">
         <label for="nome">Nome</label>
-        <input type="text" value="Monkey D.Luffy" disabled class="form-control">
+        <input type="text" value="<?= $dados['nome'] ?>" disabled class="form-control">
         <div class="row mt-2">
             <div class="col">
                 <label for="telefone">Telefone</label>

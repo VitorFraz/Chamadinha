@@ -11,8 +11,7 @@ $select = 'SELECT * FROM tb_alunos';
 
 $resultado = $banco->query($select)->fetchAll();
 
-//echo '<pre>';
-//var_dump($resultado);
+
 ?>
 <main class="container my-5">
     <table class="table table-dark table-striped">
@@ -33,3 +32,4 @@ $resultado = $banco->query($select)->fetchAll();
         </tr>
         <?php } ?>
     </table>
+</main>
