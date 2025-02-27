@@ -18,11 +18,12 @@ $password = '';
 
 $banco = new PDO($dsn, $user, $password);
 
-$insert = 'INSERT INTO tb_info_alunos (telefone, email, nascimento, frequente, id_aluno, img) VALUE (:telefone, :email, :nascimento, :frequente, :id_aluno, :img)';
+$insert = 'INSERT INTO tb_info_alunos (telefone, email, nascimento, frequente, id_aluno, img) VALUE (:telefone,:email,:nascimento,:frequente,:id_aluno,:img)';
+
+$id_aluno = $banco ->lastInsertId();
 
 $box = $banco->prepare($insert);
 
-$id_aluno = $banco ->lastInsertId();
 $box->execute([
     ':telefone' => $telefoneFormulario,
     ':email' => $emailFormulario,

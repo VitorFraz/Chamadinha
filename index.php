@@ -15,21 +15,25 @@ $resultado = $banco->query($select)->fetchAll();
 ?>
 <main class="container my-5">
     <table class="table table-dark table-striped">
+        <div class="my-3 d-flex justify-content-end">
+            <a href="formulario.php" class="btn btn-success">Cadastrar Novo Aluno</a>
+        </div>
         <tr>
             <td class="text-center"> ID </td>
             <td class="text-center"> Nome </td>
             <td class="text-center"> Ações </td>
         </tr>
         <?php foreach ($resultado as $linha) { ?>
-        <tr class="text-center">
-            <td> <?= $linha['id'] ?> </td>
-            <td> <?php echo $linha['nome'] ?> </td>
-            <td class="text-center">
-                <a href="ficha.php?id_aluno=<?= $linha['id'] ?>" class="btn btn-primary">Abrir</a>
-                <a href="#" class="btn btn-warning">Editar</a>
-                <a href="#" class="btn btn-danger">Excluir</a>
-            </td>
-        </tr>
+            <tr class="text-center">
+                <td> <?= $linha['id'] ?> </td>
+                <td> <?php echo $linha['nome'] ?> </td>
+                <td class="text-center">
+                    <a href="ficha.php?id_aluno=<?= $linha['id'] ?>" class="btn btn-primary">Abrir</a>
+                    <a href="#" class="btn btn-warning">Editar</a>
+                    <a href="./aluno-deletar.php?id=<?= $linha['id'] ?>" class="btn btn-danger">Excluir</a>
+                    
+                </td>
+            </tr>
         <?php } ?>
     </table>
 </main>
