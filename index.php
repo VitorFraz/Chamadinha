@@ -29,7 +29,7 @@ $resultado = $banco->query($select)->fetchAll();
                 <td> <?php echo $linha['nome'] ?> </td>
                 <td class="text-center">
                     <a href="ficha.php?id_aluno=<?= $linha['id'] ?>" class="btn btn-primary">Abrir</a>
-                    <a href="#" class="btn btn-warning">Editar</a>
+                    <a href="./formulario-editar.php?id_aluno_alterar=<?= $linha['id'] ?>" class="btn btn-warning">Editar</a>
                     <a href="./aluno-deletar.php?id=<?= $linha['id'] ?>" class="btn btn-danger">Excluir</a>
                     
                 </td>
